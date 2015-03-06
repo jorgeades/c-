@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Alumnos.Models.Curso>
+@{
+    ViewBag.Title = "Index";
+    bool par = false;
+  
+}
+
+<h2>Listado de Cursos</h2>
+
+@foreach (var item in Model)
+{
+
+    <div style="@(par ? "background:silver;" : "background:grey;"); float: left; width: 100%">
+        <h3>Curso de @item.nombre</h3><br/>
+        <h4>Del @item.inicio.ToShortDateString() al @item.fin.ToShortDateString()</h4>
+
+        <div style="float: left;">
+            <h3>Profesores</h3>
+            <ul>
+                @foreach (var profe in item.Profesores_Curso)
+                {
+                    <li>@profe.Profesores.nombre @profe.Profesores.apellidos</li>
+                }
+            </ul>
+
+        </div>
+
+        <div style="float: left;">
+            <h3>Alumnos</h3>
+            <ul>
+                @foreach (var alumno in item.Alumnos)
+                {
+                    <li>@alumno.nombre @alumno.apellidos</li>
+                }
+            </ul>
+
+
+        </div>
+
+
+    </div>
+    par = !par;
+}

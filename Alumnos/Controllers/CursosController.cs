@@ -21,6 +21,18 @@ namespace Alumnos.Controllers
             return View(db.Curso);
         }
 
+        public ActionResult Alta()
+        {
+            return View(new Curso());
+        }
+
+        [HttpPost]
+
+        public ActionResult Alta(Curso model)
+        {
+            return View();
+        }
+
 
         protected override void Dispose(bool disposing)
         {
