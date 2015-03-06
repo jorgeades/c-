@@ -12,20 +12,17 @@ namespace Alumnos.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Alumnos
+    public partial class Profesores
     {
-        public Alumnos()
+        public Profesores()
         {
-            this.Curso = new HashSet<Curso>();
+            this.Profesores_Curso = new HashSet<Profesores_Curso>();
         }
     
         public string dni { get; set; }
         public string nombre { get; set; }
         public string apellidos { get; set; }
-        public Nullable<System.DateTime> fechaNacimiento { get; set; }
-        public int IdNacionalidad { get; set; }
     
-        public virtual Nacionalidades Nacionalidades { get; set; }
-        public virtual ICollection<Curso> Curso { get; set; }
+        public virtual ICollection<Profesores_Curso> Profesores_Curso { get; set; }
     }
 }
